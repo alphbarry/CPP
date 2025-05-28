@@ -4,9 +4,12 @@ using namespace std;
 class	Megaphone{
 	public:
 		void	makeSound(){
-			cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
-		}
+			cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << endl;		}
 };
+
+char	ft_toupper(char c){
+	return ((c >= 'a' && c <= 'z') ? c - 32 : c);
+}
 
 int	main(int ac, char **av){
 	Megaphone	mega;
@@ -15,10 +18,9 @@ int	main(int ac, char **av){
 		mega.makeSound();
 	else{
 		for (int i = 0; i < ac; i++){
-		for (int j = 0; av[i][j]; j++){
-			if (av[i][j] >= 'a' && av[i][j] <= 'z')
-				av[i][j] -= 32; // Convert to uppercase
-			}	
+			for (int j = 0; av[i][j]; j++){
+				av[i][j] = ft_toupper(av[i][j]);
+			}
 		}
 		cout << av[1] << endl;
 	}
