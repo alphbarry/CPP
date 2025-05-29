@@ -1,14 +1,14 @@
-#include "Contact.hpp"
+#include "../inc/Contact.hpp"
 
-string Contact::getFirstName() const {
+std::string Contact::getFirstName() {
 	return firstName;
 }
 
-string Contact::getLastName() const {
+string Contact::getLastName() {
 	return lastName;
 }
 
-string Contact::getNickname() const {
+string Contact::getNickname() {
 	return nickname;
 }
 
@@ -20,7 +20,7 @@ void Contact::setLastName(string lastName) {
 	this->lastName = lastName;
 }
 
-void Contact::setNickname(string &nickname) {
+void Contact::setNickname(string nickname) {
 	this->nickname = nickname;
 }
 
@@ -28,14 +28,14 @@ void Contact::setPhoneNumber(string phoneNumber) {
 	this->phoneNumber = phoneNumber;
 }
 
-string Contact::getPhoneNumber() const {
+string Contact::getPhoneNumber() {
 	return phoneNumber;
 }
 
-void Contact::setSecret(string darkestSecret) {
-	this->Secret = Secret;
+void Contact::setSecret(string Secret) {
+	this->secret = Secret;
 }
 
-string Contact::getSecret() const {
+string Contact::getSecret() {
 	return secret;
 }
