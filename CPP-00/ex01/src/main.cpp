@@ -1,6 +1,7 @@
 #include "../inc/Contact.hpp"
 #include "../inc/Phonebook.hpp"
 
+#include <algorithm>
 #include <iostream>
 #include <string>
 using namespace std;
@@ -20,16 +21,25 @@ int main() {
 
         if (input == "ADD") {
             cout << "Enter contact information:" << endl;
-            cout << "- First name: ";
-            cin >> contact[0];
-            cout << "- Last name: ";
-            cin >> contact[1];
-            cout << "- Nickname: ";
-            cin >> contact[2];
-            cout << "- Phone number: ";
-            cin >> contact[3];
-            cout << "- Darkest secret: ";
-            cin >> contact[4];
+			for (int j = 0; j < 5; j++) {
+				string prompts[5] = {
+					"- First name: ",
+					"- Last name: ",
+					"- Nickname: ",
+					"- Phone number: ",
+					"- Darkest secret: "
+				};
+				do {
+					cout << prompts[j];
+					cin >> ws;
+					getline(cin, contact[j]);
+					// Elimina espacios en blanco al inicio y final
+					contact[j].erase(0, contact[j].find_first_not_of(" \t\n\r\f\v"));
+					contact[j].erase(contact[j].find_last_not_of(" \t\n\r\f\v") + 1);
+					if (contact[j].empty())
+						cout << "Field cannot be empty. Please enter again." << endl;
+				} while (contact[j].empty());
+			}
             
 			phonebook.addContact(contact);
             i++;
@@ -44,6 +54,7 @@ int main() {
             break;
         }
         else {
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
             cout << "Unknown command. Please use 'ADD', 'SEARCH', or 'EXIT'." << endl;
         }
     }

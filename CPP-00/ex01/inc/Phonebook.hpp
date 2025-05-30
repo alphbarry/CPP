@@ -2,6 +2,7 @@
 #define PHONEBOOK_HPP
 
 #include <string>
+#include <iomanip>
 #include "../inc/Contact.hpp"
 using namespace std;
 
@@ -16,6 +17,7 @@ class	Phonebook{
 		 void	displayContact(int i);
 		 void	displayPhonebook();
 		 string	searchContacts();
+		 Phonebook() : size(0), index(0) {};
 
 };
 

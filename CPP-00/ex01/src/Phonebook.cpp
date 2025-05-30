@@ -1,7 +1,15 @@
 #include "../inc/Phonebook.hpp"
+#include <iomanip>
 
 int Phonebook::getSize() const {
 	return size;
+}
+
+string formatField(const string& str) {
+    if (str.length() > 10)
+        return str.substr(0, 9) + ".";
+    else
+        return string(10 - str.length(), ' ') + str;
 }
 
 void	Phonebook::addContact(string* data){
@@ -14,23 +22,28 @@ void	Phonebook::addContact(string* data){
 	contacts[index].setPhoneNumber(data[3]);
 	contacts[index].setSecret(data[4]);
 	index++;
-	size++;
+	if (size < 8)
+		size++;
 }
 
 void	Phonebook::displayContact(int i){
-	cout << "First name: " << contacts[i].getFirstName() << endl;
-	cout << "Last name: " << contacts[i].getLastName() << endl;
-	cout << "Nick name: " << contacts[i].getNickname() << endl;
-	cout << "Phone Number: " << contacts[i].getPhoneNumber() << endl;
+	cout << "|     Index|First Name| Last Name|  Nickname|" << endl;
+	cout << "|" << setw(10) << i
+	 << "|" << formatField(contacts[i].getFirstName())
+	 << "|" << formatField(contacts[i].getLastName())
+	 << "|" << formatField(contacts[i].getNickname())
+	 << "|" << endl;
 }
 
 void	Phonebook::displayPhonebook(){
-	for(int i = 0; i < getSize(); i++){
-		cout << "First name: " << contacts[i].getFirstName() << endl;
-		cout << "Last name: " << contacts[i].getLastName() << endl;
-		cout << "Nick name: " << contacts[i].getNickname() << endl;
-		cout << "Phone Number: " << contacts[i].getPhoneNumber() << endl;
-	}
+    cout << "|     Index|First Name| Last Name|  Nickname|" << endl;
+    for (int i = 0; i < size; i++) {
+        cout << "|" << setw(10) << i
+             << "|" << formatField(contacts[i].getFirstName())
+             << "|" << formatField(contacts[i].getLastName())
+             << "|" << formatField(contacts[i].getNickname())
+             << "|" << endl;
+    }
 }
 
 string Phonebook::searchContacts() {
@@ -45,7 +58,7 @@ string Phonebook::searchContacts() {
     }
 
     cout << "Enter the index of the contact you want to search for: ";
-    cin >> input;
+    getline(cin, input);
 
     try {
         index = stoi(input);
