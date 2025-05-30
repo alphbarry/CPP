@@ -5,6 +5,19 @@ int Phonebook::getSize() const {
 	return size;
 }
 
+int ft_atoi(const std::string& str) {
+	int res = 0;
+	for (size_t i = 0; i < str.length(); ++i) {
+		char c = str[i];
+		if (c < '0' || c > '9') {
+			return -1;
+		}
+		res = res * 10 + (c - '0');
+	}
+	return res;
+}
+
+
 string formatField(const string& str) {
     if (str.length() > 10)
         return str.substr(0, 9) + ".";
@@ -64,7 +77,7 @@ string Phonebook::searchContacts() {
 	}
 
     try {
-        index = stoi(input);
+        index = ft_atoi(input);
         if (index < 0 || index >= size) {
             throw out_of_range("Index out of range");
         }
