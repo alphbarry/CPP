@@ -1,15 +1,13 @@
-#include "../inc/Contact.hpp"
 #include "../inc/Phonebook.hpp"
 
-#include <algorithm>
-#include <iostream>
-#include <string>
-using namespace std;
+bool	isEmptyOrWhitespace(string& str) {
+	return str.find_first_not_of(" \t\n\v\f\r") == string::npos;
+}
 
 int main() {
     Phonebook phonebook;
 	string	contact[5];
-    string input, info;
+    string input;
     int i = 0;
 
     while (true) {
@@ -18,7 +16,6 @@ int main() {
 			cout << "\nError reading input. Ctrl D detected. Exiting..." << endl;
 			break;
 		}
-
         if (input == "ADD") {
             cout << "Enter contact information:" << endl;
 			for (int j = 0; j < 5; j++) {
@@ -31,19 +28,16 @@ int main() {
 				};
 				do {
 					cout << prompts[j];
-					cin >> ws;
-					getline(cin, contact[j]);
-					// Elimina espacios en blanco al inicio y final
-					contact[j].erase(0, contact[j].find_first_not_of(" \t\n\r\f\v"));
-					contact[j].erase(contact[j].find_last_not_of(" \t\n\r\f\v") + 1);
-					if (contact[j].empty())
+					if(!getline(cin, contact[j])) {
+						cout << "\nError reading input. Ctrl D detected. Exiting..." << endl;
+						return 1;
+					}
+					if (isEmptyOrWhitespace(contact[j]))
 						cout << "Field cannot be empty. Please enter again." << endl;
-				} while (contact[j].empty());
+				} while (isEmptyOrWhitespace(contact[j]));
 			}
-            
 			phonebook.addContact(contact);
             i++;
-
             cout << "Contact added! You can ADD more, SEARCH, or EXIT." << endl;
         }
         else if (input == "SEARCH") {
@@ -54,11 +48,9 @@ int main() {
             break;
         }
         else {
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    		cin.ignore(numeric_limits<streamsize>::max(), '\n');
             cout << "Unknown command. Please use 'ADD', 'SEARCH', or 'EXIT'." << endl;
         }
     }
-
     return 0;
 }
-

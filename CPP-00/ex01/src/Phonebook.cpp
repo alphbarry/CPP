@@ -58,7 +58,10 @@ string Phonebook::searchContacts() {
     }
 
     cout << "Enter the index of the contact you want to search for: ";
-    getline(cin, input);
+    if(!getline(cin, input)) {
+		cout << "\nError reading input. Ctrl D detected. Exiting..." << endl;
+		return "";
+	}
 
     try {
         index = stoi(input);
