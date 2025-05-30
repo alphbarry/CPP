@@ -22,7 +22,6 @@ void	Phonebook::displayContact(int i){
 	cout << "Last name: " << contacts[i].getLastName() << endl;
 	cout << "Nick name: " << contacts[i].getNickname() << endl;
 	cout << "Phone Number: " << contacts[i].getPhoneNumber() << endl;
-	cout << "Secret: " << contacts[i].getSecret() << endl;
 }
 
 void	Phonebook::displayPhonebook(){
@@ -31,13 +30,14 @@ void	Phonebook::displayPhonebook(){
 		cout << "Last name: " << contacts[i].getLastName() << endl;
 		cout << "Nick name: " << contacts[i].getNickname() << endl;
 		cout << "Phone Number: " << contacts[i].getPhoneNumber() << endl;
-		cout << "Secret: " << contacts[i].getSecret() << endl;
 	}
 }
 
 string Phonebook::searchContacts() {
     string input;
     int index;
+
+	displayPhonebook();
 
     if (size == 0) {
         cout << "Phonebook is empty. Add contacts first." << endl;
