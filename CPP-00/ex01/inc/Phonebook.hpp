@@ -2,7 +2,8 @@
 #define PHONEBOOK_HPP
 
 #include <string>
-#include "contact.hpp"
+#include <iostream>
+#include "../inc/Contact.hpp"
 using namespace std;
 
 class	Phonebook{
@@ -13,8 +14,10 @@ class	Phonebook{
 	public:
 		 int	getSize() const;
 		 void	addContact(string data[5]);
-		 void	displayContact(int i) const;
-		 void	displayPhonebook() const;
+		 void	displayContact(int i);
+		 void	displayPhonebook();
+		 string	searchContacts();
+		 Phonebook() : size(0), index(0) {};
 
 };
 
