@@ -1,7 +1,7 @@
 #include "../inc/HumanB.hpp"
 
-HumanB::HumanB(std::string name, Weapon &weapon) : name(name), weapon(weapon){
-	std::cout << "HumanB:" << name << " created with " << weapon.getType() << std::endl;
+HumanB::HumanB(std::string name) : name(name){
+	std::cout << "HumanB:" << name << " created with "<< std::endl;
 }
 
 HumanB::~HumanB(void){
@@ -9,9 +9,9 @@ HumanB::~HumanB(void){
 }
 
 void	HumanB::attack(){
-	std::cout << "HumanB:" << name << " attacks with " << weapon.getType() << std::endl;
+	std::cout << "HumanB:" << name << " attacks with " << weapon->getType() << std::endl;
 }
 
-void	HumanB::setWeapon(Weapon weapon){
-	this->weapon = weapon;
+void	HumanB::setWeapon(Weapon &weapon){
+	this->weapon = &weapon;
 }
