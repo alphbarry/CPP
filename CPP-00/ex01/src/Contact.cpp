@@ -1,41 +1,53 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Contact.cpp                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: alphbarr <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/06/09 16:53:39 by alphbarr          #+#    #+#             */
+/*   Updated: 2025/06/09 16:53:40 by alphbarr         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../inc/Contact.hpp"
 
 std::string Contact::getFirstName() {
 	return firstName;
 }
 
-string Contact::getLastName() {
+std::string Contact::getLastName() {
 	return lastName;
 }
 
-string Contact::getNickname() {
+std::string Contact::getNickname() {
 	return nickname;
 }
 
-void Contact::setFirstName(string firstName) {
+void Contact::setFirstName(std::string firstName) {
 	this->firstName = firstName;
 }
 
-void Contact::setLastName(string lastName) {
+void Contact::setLastName(std::string lastName) {
 	this->lastName = lastName;
 }
 
-void Contact::setNickname(string nickname) {
+void Contact::setNickname(std::string nickname) {
 	this->nickname = nickname;
 }
 
-void Contact::setPhoneNumber(string phoneNumber) {
+void Contact::setPhoneNumber(std::string phoneNumber) {
 	this->phoneNumber = phoneNumber;
 }
 
-string Contact::getPhoneNumber() {
+std::string Contact::getPhoneNumber() {
 	return phoneNumber;
 }
 
-void Contact::setSecret(string Secret) {
+void Contact::setSecret(std::string Secret) {
 	this->secret = Secret;
 }
 
-string Contact::getSecret() {
+std::string Contact::getSecret() {
 	return secret;
 }

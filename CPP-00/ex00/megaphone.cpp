@@ -1,10 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: alphbarr <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/06/09 16:43:19 by alphbarr          #+#    #+#             */
+/*   Updated: 2025/06/09 16:43:49 by alphbarr         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <iostream>
-using namespace std;
 
 class	Megaphone{
 	public:
 		void	makeSound(){
-			cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << endl;		}
+			std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;		}
 };
 
 char	ft_toupper(char c){
@@ -22,7 +33,7 @@ int	main(int ac, char **av){
 				av[i][j] = ft_toupper(av[i][j]);
 			}
 		}
-		cout << av[1] << endl;
+		std::cout << av[1] << std::endl;
 	}
 	return 0;
 }

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Phonebook.cpp                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: alphbarr <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/06/09 16:53:44 by alphbarr          #+#    #+#             */
+/*   Updated: 2025/06/09 16:53:45 by alphbarr         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../inc/Phonebook.hpp"
 #include <iomanip>
 
@@ -18,14 +30,14 @@ int ft_atoi(const std::string& str) {
 }
 
 
-string formatField(const string& str) {
+std::string formatField(const std::string& str) {
     if (str.length() > 10)
         return str.substr(0, 9) + ".";
     else
-        return string(10 - str.length(), ' ') + str;
+        return std::string(10 - str.length(), ' ') + str;
 }
 
-void	Phonebook::addContact(string* data){
+void	Phonebook::addContact(std::string* data){
 
 	if (index >= 8)
 		index = 0;
@@ -40,52 +52,52 @@ void	Phonebook::addContact(string* data){
 }
 
 void	Phonebook::displayContact(int i){
-	cout << "|     Index|First Name| Last Name|  Nickname|" << endl;
-	cout << "|" << setw(10) << i
+	std::cout << "|     Index|First Name| Last Name|  Nickname|" << std::endl;
+	std::cout << "|" << std::setw(10) << i
 	 << "|" << formatField(contacts[i].getFirstName())
 	 << "|" << formatField(contacts[i].getLastName())
 	 << "|" << formatField(contacts[i].getNickname())
-	 << "|" << endl;
+	 << "|" << std::endl;
 }
 
 void	Phonebook::displayPhonebook(){
-    cout << "|     Index|First Name| Last Name|  Nickname|" << endl;
+	std::cout << "|     Index|First Name| Last Name|  Nickname|" << std::endl;
     for (int i = 0; i < size; i++) {
-        cout << "|" << setw(10) << i
+		std::cout << "|" << std::setw(10) << i
              << "|" << formatField(contacts[i].getFirstName())
              << "|" << formatField(contacts[i].getLastName())
              << "|" << formatField(contacts[i].getNickname())
-             << "|" << endl;
+             << "|" << std::endl;
     }
 }
 
-string Phonebook::searchContacts() {
-    string input;
+std::string Phonebook::searchContacts() {
+	std::string input;
     int index;
 
 	displayPhonebook();
 
     if (size == 0) {
-        cout << "Phonebook is empty. Add contacts first." << endl;
+		std::cout << "Phonebook is empty. Add contacts first." << std::endl;
         return "";
     }
 
-    cout << "Enter the index of the contact you want to search for: ";
-    if(!getline(cin, input)) {
-		cout << "\nError reading input. Ctrl D detected. Exiting..." << endl;
+	std::cout << "Enter the index of the contact you want to search for: ";
+    if(!getline(std::cin, input)) {
+		std::cout << "\nError reading input. Ctrl D detected. Exiting..." << std::endl;
 		return "";
 	}
 
     try {
         index = ft_atoi(input);
         if (index < 0 || index >= size) {
-            throw out_of_range("Index out of range");
+            throw std::out_of_range("Index out of range");
         }
         displayContact(index);
-    } catch (const invalid_argument& e) {
-        cout << "Invalid input. Please enter a number." << endl;
-    } catch (const out_of_range& e) {
-        cout << "Index out of range. Valid range: 0 to " << size - 1 << "." << endl;
+    } catch (const std::invalid_argument& e) {
+		std::cout << "Invalid input. Please enter a number." << std::endl;
+    } catch (const std::out_of_range& e) {
+		std::cout << "Index out of range. Valid range: 0 to " << size - 1 << "." << std::endl;
     }
 
     return input;

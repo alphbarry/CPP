@@ -1,4 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: alphbarr <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/06/09 16:53:51 by alphbarr          #+#    #+#             */
+/*   Updated: 2025/06/09 16:54:15 by alphbarr         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../inc/Phonebook.hpp"
+using namespace std;
 
 bool	isEmptyOrWhitespace(string& str) {
 	return str.find_first_not_of(" \t\n\v\f\r") == string::npos;
