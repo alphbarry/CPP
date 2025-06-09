@@ -29,7 +29,6 @@ int	main(int ac, char **av) {
 			return 1;
 		}
 		while (getline(filename, line)) {
-			std::cout << "Processing line: " << line << std::endl;
 			size_t pos = 0;
 			while ((pos = line.find(s1, pos)) != std::string::npos) {
 				line.erase(pos, s1.length());
