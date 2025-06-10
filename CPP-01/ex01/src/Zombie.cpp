@@ -6,25 +6,29 @@
 /*   By: alphbarr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/09 16:42:28 by alphbarr          #+#    #+#             */
-/*   Updated: 2025/06/09 16:42:29 by alphbarr         ###   ########.fr       */
+/*   Updated: 2025/06/10 13:09:43 by alpha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/Zombie.hpp"
 
 void	Zombie::announce() {
-	cout << this->name << ": BraiiiiiiinnnzzzZ..." << endl;
+	std::cout << this->name << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }
 
-Zombie::Zombie(string name){
+Zombie::Zombie() {
+	std::cout << "Zombie created." << std::endl;
+}
+
+Zombie::Zombie(std::string name){
 	this->name = name;
-	cout << "Zombie " << name << " created." << endl;
+	std::cout << "Zombie " << name << " created." << std::endl;
 }
 
 Zombie::~Zombie(void) {
-	cout << "Zombie " << this->name << " destroyed." << endl;
+	std::cout << "Zombie " << this->name << " destroyed." << std::endl;
 }
 
-void	Zombie::setName(string name) {
+void	Zombie::setName(std::string name) {
 	this->name = name;
 }

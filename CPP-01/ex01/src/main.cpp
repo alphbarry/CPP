@@ -6,13 +6,13 @@
 /*   By: alphbarr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/09 16:42:24 by alphbarr          #+#    #+#             */
-/*   Updated: 2025/06/09 16:42:25 by alphbarr         ###   ########.fr       */
+/*   Updated: 2025/06/10 13:08:33 by alpha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/Zombie.hpp"
 
-Zombie*	zombieHorde(int N, string name);
+Zombie*	zombieHorde(int N, std::string name);
 
 int	main(){
 	int	size = 10;
