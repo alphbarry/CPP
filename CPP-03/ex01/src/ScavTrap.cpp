@@ -6,17 +6,14 @@
 /*   By: alphbarr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 20:10:31 by alphbarr          #+#    #+#             */
-/*   Updated: 2025/06/25 20:11:59 by alphbarr         ###   ########.fr       */
+/*   Updated: 2025/06/29 19:00:21 by alpha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/ScavTrap.hpp"
 
 ScavTrap::ScavTrap(const std::string& name) : ClapTrap(name) {
-	_hitPoints = 100;
-	_energyPoints = 50;
-	_attackDamage = 20;
-	std::cout << "ScavTrap " << _name << " created." << std::endl;
+	std::cout << "ScavTrap from ClapTrap" << _name << " created." << std::endl;
 }
 
 ScavTrap::ScavTrap(const ScavTrap& other) : ClapTrap(other) {

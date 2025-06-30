@@ -2,11 +2,7 @@
 #include <ostream>
 
 FragTrap::FragTrap(const std::string& name) : ClapTrap(name) {
-	this->_name = name;
-	this->_hitPoints = 100;
-	this->_energyPoints = 100;
-	this->_attackDamage = 30;
-	std::cout << "FragTrap " << name << " created." << std::endl;
+	std::cout << "FragTrap from ClapTrap " << name << " created." << std::endl;
 }
 
 FragTrap::FragTrap(const FragTrap& other) : ClapTrap(other) {
@@ -34,5 +30,8 @@ void FragTrap::attack(const std::string &target){
 }
 
 void FragTrap::highFivesGuys(){
-	std::cout << "I love Five Guys." << std::endl;
+	if (_hitPoints > 0)
+		std::cout << "I love Five Guys." << std::endl;
+	else
+		std::cout << "Not alive for eat this burguer" << std::endl;
 }
