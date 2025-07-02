@@ -6,39 +6,53 @@
 /*   By: alphbarr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 19:28:35 by alphbarr          #+#    #+#             */
-/*   Updated: 2025/06/30 19:37:19 by alphbarr         ###   ########.fr       */
+/*   Updated: 2025/07/02 13:41:54 by alpha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/ClapTrap.hpp"
 #include "../inc/ScavTrap.hpp"
 #include "../inc/FragTrap.hpp"
+#include "../inc/DiamondTrap.hpp"
 
 int main() {
-    // 🧍 Crear instancias de cada tipo de Trap
-    ClapTrap clapTrap("Clappy");
-    ScavTrap scavTrap("Scavvy");
-    FragTrap fragTrap("Fraggy");
+    // 🧍 Crear instancias de cada clase
+    ClapTrap    clap("Clap");
+    ScavTrap    scav("Scav");
+    FragTrap    frag("Frag");
+    DiamondTrap diamond("Diamond");
 
-    std::cout << "\n--- 🎯 Ataques ---\n" << std::endl;
-    clapTrap.attack("Kalilu");
-    scavTrap.attack("Sambu");
-    fragTrap.attack("Momo");
+    // 🎯 Ataques
+    std::cout << "\n--- 🎯 ATAQUES ---\n" << std::endl;
+    clap.attack("target1");
+    scav.attack("target2");
+    frag.attack("target3");
+    diamond.attack("target4");
 
-    std::cout << "\n--- 💥 Daño recibido ---\n" << std::endl;
-    clapTrap.takeDamage(20);
-    scavTrap.takeDamage(30);
-    fragTrap.takeDamage(50);
+    // 💥 Daño recibido
+    std::cout << "\n--- 💥 DAÑO RECIBIDO ---\n" << std::endl;
+    clap.takeDamage(5);
+    scav.takeDamage(10);
+    frag.takeDamage(15);
+    diamond.takeDamage(20);
 
-    std::cout << "\n--- 🔧 Reparaciones ---\n" << std::endl;
-    clapTrap.beRepaired(10);
-    scavTrap.beRepaired(20);
-    fragTrap.beRepaired(30);
+    // 🔧 Reparaciones
+    std::cout << "\n--- 🔧 REPARACIONES ---\n" << std::endl;
+    clap.beRepaired(3);
+    scav.beRepaired(6);
+    frag.beRepaired(9);
+    diamond.beRepaired(12);
 
+	// 🧱 Habilidades especiales
     std::cout << "\n--- 🧱 Habilidades especiales ---\n" << std::endl;
-    scavTrap.guardGate();          // Modo guardia (ScavTrap)
-    fragTrap.highFivesGuys();      // Petición de high five (FragTrap)
+    scav.guardGate();           // ScavTrap entra en modo guardia
+    frag.highFivesGuys();       // FragTrap pide high five
 
-    std::cout << "\n--- ✅ Fin del programa ---" << std::endl;
+    // 🧠 Identidad especial de DiamondTrap
+    std::cout << "\n--- 🧠 IDENTIDAD ---\n" << std::endl;
+    diamond.WhoAmI();
+
+    // ✅ Fin del programa
+    std::cout << "\n--- ✅ FIN DEL PROGRAMA ---" << std::endl;
     return 0;
 }
