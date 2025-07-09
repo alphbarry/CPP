@@ -15,6 +15,9 @@ int	main(){
 	IT->setAuthor(author);
 	IT->setYear(year);
 
+	std::cout << *IT << std::endl;
+
+	delete IT;
 		
 	return 0;
 }

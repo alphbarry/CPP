@@ -21,6 +21,34 @@ Book& Book::operator=(const Book& copy){
 	return *this;
 }
 
+Book::~Book(){
+	std::cout << "Book destructor called." << std::endl;
+}
+
+std::string Book::getName() const {
+	return this->_name;
+}
+
+std::string Book::getAuthor() const {
+	return this->_author;
+}
+
+int Book::getYear() const {
+	return this->_year;
+}
+
+void Book::setName(const std::string& name) {
+	this->_name = name;
+}
+
+void Book::setAuthor(const std::string& author) {
+	this->_author = author;
+}
+
+void Book::setYear(int year) {
+	this->_year = year;
+}
+
 std::ostream& operator<<(std::ostream& os, const Book& book){
 	os << "Book Name: " << book.getName() << ", Author: " << book.getAuthor() << ", Year: " << book.getYear();
 	return os;
