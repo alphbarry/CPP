@@ -28,11 +28,17 @@ class	AForm : public Bureaucrat{
 				virtual const char* what() const throw();
 		};
 
+		class FormNotSignedException : public std::exception {
+			public:
+				virtual const char* what() const throw(); 
+		};
+
 		std::string getName() const;
 		bool		getIsSigned() const;
 		int			getGradeToSign() const;
 		int			getGradeToExecute() const;
 		void		beSigned(const Bureaucrat &bureaucrat);
+		void		execute(const Bureaucrat &executor) const;
 };
 
 std::ostream &operator<<(std::ostream &os, const AForm &aform);

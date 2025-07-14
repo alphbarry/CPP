@@ -2,18 +2,18 @@
 
 #include "AForm.hpp"
 
-class ShrubberyCreationForm : public AForm {
+class PresidentialPardonForm : public AForm {
 	private:
 		std::string _target;
 
-		void performAction() const override;
+		void performAction() const;
 
 	public:
-		ShrubberyCreationForm();
-		ShrubberyCreationForm(const std::string &target);
-		ShrubberyCreationForm(const ShrubberyCreationForm &copy);
-		ShrubberyCreationForm &operator=(const ShrubberyCreationForm &copy);
-		virtual ~ShrubberyCreationForm();
+		PresidentialPardonForm();
+		PresidentialPardonForm(const std::string &target);
+		PresidentialPardonForm(const PresidentialPardonForm &copy);
+		PresidentialPardonForm &operator=(const PresidentialPardonForm &copy);
+		virtual ~PresidentialPardonForm();
 
 		const std::string &getTarget() const;
 };

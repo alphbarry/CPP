@@ -6,7 +6,7 @@
 #    By: alphbarr <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/09 16:42:42 by alphbarr          #+#    #+#              #
-#    Updated: 2025/07/13 17:23:41 by alphbarr         ###   ########.fr        #
+#    Updated: 2025/07/14 19:21:36 by alphbarr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,10 @@ NAME = Bureaucrat
 # SRCS =====================================================================================
 SRCS_DIR = ./src/
 SRCS = Bureaucrat.cpp \
-		Form.cpp \
+		AForm.cpp \
+		ShrubberyCreationForm.cpp \
+		PresidentialPardonForm.cpp \
+		RobotomyRequestForm.cpp \
 		main.cpp
 
 # INCLUDES =================================================================================

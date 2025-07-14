@@ -1,12 +1,13 @@
 #pragma once 
 
 #include "AForm.hpp"
+#include <stdlib.h>
 
 class RobotomyRequestForm : public AForm {
 	private:
 		std::string _target;
 
-		void performAction() const override;
+		void performAction() const;
 
 	public:
 		RobotomyRequestForm();
@@ -16,4 +17,9 @@ class RobotomyRequestForm : public AForm {
 		virtual ~RobotomyRequestForm();
 
 		const std::string &getTarget() const;
+
+		class RobotomyFailedException : public std::exception {
+			public:
+				virtual const char* what() const throw();
+		};
 };
