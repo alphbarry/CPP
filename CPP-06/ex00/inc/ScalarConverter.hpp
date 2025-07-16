@@ -2,8 +2,9 @@
 
 #include <limits>
 #include <cctype>
-#include <limits>
+#include <iostream>
 #include <cmath>
+#include <string>
 
 # define MIN_INT std::numeric_limits<int>::min();
 # define MAX_INT std::numeric_limits<int>::max();
@@ -14,13 +15,13 @@
 
 
 enum e_type{
-	CHAR = 0;
-	INT = 1;
-	FLOAT = 2;
-	DOUBLE = 3;
-	SPECIAL = 4;
-	INVALID = -1;
-}
+	CHAR = 0,
+	INT = 1,
+	FLOAT = 2,
+	DOUBLE = 3,
+	SPECIAL = 4,
+	INVALID = -1
+};
 
 class	ScalarConverter{
 	private:
