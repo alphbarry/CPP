@@ -26,11 +26,12 @@ enum e_type{
 class	ScalarConverter{
 	private:
 		ScalarConverter();
+		ScalarConverter(const ScalarConverter& other);
 	public:
 		static void	convert(const std::string& literal);
 };
 
-e_type	wich_type(const std::string& literal);
+e_type	which_type(const std::string& literal);
 void	convertChar(const std::string& literal);
 void	convertInt(const std::string& literal);
 void	convertFloat(const std::string& literal);

@@ -1,25 +1,98 @@
 #include "../inc/ScalarConverter.hpp"
+#include <cctype>
+
+static int isspecial(const std::string& lit){
+	if (lit == "nan" || lit == "nanf" || lit == "-inf" || lit == "+inf" || lit == "-inff" || lit == "+inff")
+		return 1;
+	return 0;
+}
 
 static int ischar(const std::string& lit){
-	if(lit.length() == 1 && !isdigit(lit[0]))
+	if(lit.length() == 1 && isprint(lit[0]) && !isdigit(lit[0]))
 		return 1;
 	return 0;
 }
 
 static int	isint(const std::string& lit){
-	int	i = 0;
+	int	i;
 
-	while((lit[i] >= 0 && lit[i] <= 9) || lit[i] == '-' || lit[i] == '+'){
-		if(lit[i] == '-' || lit[i] == '+'){
-			if(i != 0)
-				return 0;
-		}
+	if (lit.empty())
+		return 0;
+	if (lit[i] == '-' || lit[i] == '+')
 		i++;
+	if (i == lit.length())
+		return 0;
+	for (; i < lit.length(); i++){
+		if (!isdigit(lit[i]))
+			return 0;
 	}
 	return 1;
 }
 
-e_type	wich_type(const std::string& literal){
+static int isfloat(const std::string& lit) {
+	size_t i = 0;
+	bool dot = false;
+
+	if (lit.empty() || lit.back() != 'f')
+		return 0;
+
+	std::string num = lit.substr(0, lit.length() - 1); // quitar 'f'
+ 
+	if (num.empty())
+		return 0;
+
+	if (num[i] == '+' || num[i] == '-')
+		i++;
+
+	if (i == num.length()) // solo "+" o "-" es inválido
+		return 0;
+
+	bool digit = false;
+	for (; i < num.length(); i++) {
+		if (isdigit(num[i])) {
+			digit = true;
+		} else if (num[i] == '.') {
+			if (dot)
+				return 0;
+			dot = true;
+		} else {
+			return 0;
+		}
+	}
+
+	return (digit && dot);
+}
+
+static int isdouble(const std::string& lit) {
+	size_t i = 0;
+	bool dot = false;
+
+	if (lit.empty())
+		return 0;
+
+	if (lit[i] == '+' || lit[i] == '-')
+		i++;
+
+	if (i == lit.length()) // solo "+" o "-" es inválido
+		return 0;
+
+	bool digit = false;
+	for (; i < lit.length(); i++) {
+		if (isdigit(lit[i])) {
+			digit = true;
+		} else if (lit[i] == '.') {
+			if (dot)
+				return 0;
+			dot = true;
+		} else {
+			return 0;
+		}
+	}
+
+	return (digit && dot);
+}
+
+e_type	which_type(const std::string& literal){
 	if(ischar(literal))
 		return CHAR;
 	if(isint(literal))
@@ -30,4 +103,5 @@ e_type	wich_type(const std::string& literal){
 		return DOUBLE;
 	if (isspecial(literal))
 		return SPECIAL;
+	return INVALID;
 }
