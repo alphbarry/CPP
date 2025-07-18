@@ -14,7 +14,7 @@ static int ischar(const std::string& lit){
 }
 
 static int	isint(const std::string& lit){
-	int	i;
+	size_t	i = 0;
 
 	if (lit.empty())
 		return 0;
