@@ -30,17 +30,17 @@ void identify(Base& p) {
 	try {
 		A& a = dynamic_cast<A&>(p);
 		std::cout << "A" << std::endl;
-		(void)a; // To avoid unused variable warning
+		(void)a;
 	} catch (std::bad_cast&) {
 		try {
 			B& b = dynamic_cast<B&>(p);
 			std::cout << "B" << std::endl;
-			(void)b; // To avoid unused variable warning
+			(void)b;
 		} catch (std::bad_cast&) {
 			try {
 				C& c = dynamic_cast<C&>(p);
 				std::cout << "C" << std::endl;
-				(void)c; // To avoid unused variable warning
+				(void)c;
 			} catch (std::bad_cast&) {
 				std::cout << "Unknown type" << std::endl;
 			}
@@ -49,12 +49,12 @@ void identify(Base& p) {
 }
 
 int main() {
-	srand(static_cast<unsigned int>(time(0))); // Seed for random number generation
+	srand(static_cast<unsigned int>(time(0)));
 
 	Base* instance = generate();
 	identify(instance);
 	identify(*instance);
 
-	delete instance; // Clean up allocated memory
+	delete instance;
 	return 0;
 }
