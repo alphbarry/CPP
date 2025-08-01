@@ -5,6 +5,7 @@
 #include <iostream>
 #include <cmath>
 #include <string>
+#include <cstdlib>     // para strtod
 
 # define MIN_INT std::numeric_limits<int>::min()
 # define MAX_INT std::numeric_limits<int>::max()

@@ -10,7 +10,7 @@ int main() {
 
 	std::cout << "Original Data: " << data.age << ", " << data.name << ", " << data.sername << std::endl;
 
-	uintptr_t raw = Serializer::serialize(&data);
+	unsigned long raw = Serializer::serialize(&data);
 	std::cout << "Serialized Data: " << raw << std::endl;
 
 	Data *deserializedData = Serializer::deserialize(raw);

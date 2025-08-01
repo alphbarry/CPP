@@ -33,7 +33,7 @@ static int isfloat(const std::string& lit) {
 	size_t i = 0;
 	bool dot = false;
 
-	if (lit.empty() || lit.back() != 'f')
+	if (lit.empty() || lit[lit.size() - 1] != 'f')
 		return 0;
 
 	std::string num = lit.substr(0, lit.length() - 1); // quitar 'f'

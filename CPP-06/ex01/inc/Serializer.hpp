@@ -2,6 +2,8 @@
 
 #include <iostream>
 
+
+
 typedef struct s_data {
 	int age;
 	std::string name;
@@ -14,6 +16,6 @@ class Serializer {
 		Serializer(const Serializer &other);
 		Serializer &operator=(const Serializer &other);
 	public:
-		static uintptr_t serialize(Data *ptr);
-		static Data *deserialize(uintptr_t raw);
+		static unsigned long serialize(Data *ptr);
+		static Data *deserialize(unsigned long raw);
 };
