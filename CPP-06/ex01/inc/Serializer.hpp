@@ -1,7 +1,7 @@
 #pragma once
 
 #include <iostream>
-
+# include <stdint.h>
 
 
 typedef struct s_data {
@@ -16,6 +16,6 @@ class Serializer {
 		Serializer(const Serializer &other);
 		Serializer &operator=(const Serializer &other);
 	public:
-		static unsigned long serialize(Data *ptr);
-		static Data *deserialize(unsigned long raw);
+		static uintptr_t serialize(Data *ptr);
+		static Data *deserialize(uintptr_t raw);
 };

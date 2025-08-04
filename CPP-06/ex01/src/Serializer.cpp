@@ -12,7 +12,7 @@ Serializer &Serializer::operator=(const Serializer &other) {
 }
 
 unsigned long Serializer::serialize(Data *ptr) {
-	return reinterpret_cast<unsigned long>(ptr);
+	return reinterpret_cast<uintptr_t>(ptr);
 }
 
 Data *Serializer::deserialize(unsigned long raw) {

@@ -30,38 +30,38 @@ static int	isint(const std::string& lit){
 }
 
 static int isfloat(const std::string& lit) {
-	size_t i = 0;
-	bool dot = false;
-
-	if (lit.empty() || lit[lit.size() - 1] != 'f')
+	if (lit.empty() || lit[lit.length() - 1] != 'f')
 		return 0;
 
 	std::string num = lit.substr(0, lit.length() - 1); // quitar 'f'
- 
 	if (num.empty())
 		return 0;
 
+	size_t i = 0;
 	if (num[i] == '+' || num[i] == '-')
 		i++;
 
 	if (i == num.length()) // solo "+" o "-" es inválido
 		return 0;
 
-	bool digit = false;
-	for (; i < num.length(); i++) {
-		if (isdigit(num[i])) {
-			digit = true;
+	bool has_digit = false;
+	bool has_dot = false;
+
+	for (; i < num.length(); ++i) {
+		if (std::isdigit(num[i])) {
+			has_digit = true;
 		} else if (num[i] == '.') {
-			if (dot)
-				return 0;
-			dot = true;
+			if (has_dot)
+				return 0; // más de un punto
+			has_dot = true;
 		} else {
-			return 0;
+			return 0; // carácter no válido
 		}
 	}
 
-	return (digit && dot);
+	return (has_digit && has_dot);
 }
+
 
 static int isdouble(const std::string& lit) {
 	size_t i = 0;
