@@ -26,6 +26,25 @@ namespace sc {
 	}
 }
 
+void	printSpecial(const std::string& literal) {
+	std::cout << "char: impossible" << std::endl;
+	std::cout << "int: impossible" << std::endl;
+	
+	// Para float, agregar 'f' si no existe
+	std::string floatLiteral = literal;
+	if (floatLiteral.length() > 0 && floatLiteral[floatLiteral.length() - 1] != 'f') {
+		floatLiteral += 'f';
+	}
+	std::cout << "float: " << floatLiteral << std::endl;
+	
+	// Para double, quitar la 'f' si existe
+	std::string doubleLiteral = literal;
+	if (doubleLiteral.length() > 0 && doubleLiteral[doubleLiteral.length() - 1] == 'f') {
+		doubleLiteral = doubleLiteral.substr(0, doubleLiteral.length() - 1);
+	}
+	std::cout << "double: " << doubleLiteral << std::endl;
+}
+
 void ScalarConverter::convert(const std::string &literal) {
     std::cout << "Converting literal: " << literal << std::endl;
 
@@ -122,6 +141,10 @@ void ScalarConverter::convert(const std::string &literal) {
             std::cout << std::endl;
             break;
         }
+
+        case SPECIAL:
+            printSpecial(literal);
+            break;
 
         default:
             std::cerr << "Invalid literal" << std::endl;

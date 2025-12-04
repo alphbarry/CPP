@@ -93,6 +93,8 @@ static int isdouble(const std::string& lit) {
 }
 
 e_type	which_type(const std::string& literal){
+	if (isspecial(literal))
+		return SPECIAL;
 	if(ischar(literal))
 		return CHAR;
 	if(isint(literal))
@@ -101,7 +103,5 @@ e_type	which_type(const std::string& literal){
 		return FLOAT;
 	if(isdouble(literal))
 		return DOUBLE;
-	if (isspecial(literal))
-		return SPECIAL;
 	return INVALID;
 }

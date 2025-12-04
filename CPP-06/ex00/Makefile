@@ -32,7 +32,7 @@ OBJS 		= 	$(addprefix $(OBJS_DIR), $(OBJ))
 # ==========================================================================================
 
 # FROM SUBJECT =============================================================================
-$(OBJS_DIR)%.o :	$(SRCS_DIR)%.cpp
+$(OBJS_DIR)%.o :	$(SRCS_DIR)%.cpp Makefile
 	@mkdir -p $(OBJS_DIR)
 	@echo "Compiling: $<"
 	@clang++ $(FLAGS) -c $< -o $@
@@ -51,21 +51,4 @@ fclean: clean
 	@rm -f $(NAME)
 
 re: fclean all
-# ==========================================================================================
-
-# SUP ======================================================================================
-check: $(NAME)
-	@/bin/echo
-	@/bin/echo "Expected  : SHHHHH... I THINK THE STUDENTS ARE ASLEEP..."
-	@/bin/echo -n "Megaphone : "
-	@./$(NAME) "shhhhh... I think the students are asleep..."
-	@/bin/echo
-	@/bin/echo "Expected  : DAMNIT ! SORRY STUDENTS, I THOUGHT THIS THING WAS OFF."
-	@/bin/echo -n "Megaphone : "
-	@./$(NAME) Damnit " ! " "Sorry students, I thought this thing was off."
-	@/bin/echo
-	@/bin/echo "Expected  : * LOUD AND UNBEARABLE FEEDBACK NOISE *"
-	@/bin/echo -n "Megaphone : "
-	@./$(NAME)
-	@/bin/echo
 # ==========================================================================================
