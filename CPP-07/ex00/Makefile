@@ -33,12 +33,12 @@ OBJS 		= 	$(addprefix $(OBJS_DIR), $(OBJ))
 # ==========================================================================================
 
 # FROM SUBJECT =============================================================================
-$(OBJS_DIR)%.o :	$(SRCS_DIR)%.cpp
+$(OBJS_DIR)%.o :	$(SRCS_DIR)%.cpp Makefile
 	@mkdir -p $(OBJS_DIR)
 	@echo "Compiling: $<"
 	@clang++ $(FLAGS) $(INCLUDES) -c $< -o $@
 
-$(NAME): $(OBJS)
+$(NAME): $(OBJS) 
 	@clang++ $(FLAGS) -o $(NAME) $(OBJS)
 
 all: $(NAME)
